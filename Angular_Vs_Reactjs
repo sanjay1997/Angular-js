@@ -1,0 +1,670 @@
+Google ne Angular js banaya
+Facebook ne React js Banaya
+
+1.) Why use we use Angular js and React js
+
+--> Both Are Single Page Application
+--> React : Instagram, Skype Website, wallmart website, google.org etc
+--> Angular : freelancer, weather.com,
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+React js is Liabraray                                               And                                         Angular js is Framework
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Liabrary ke ander hum log decide karte hai                                                                    Framework ke ander already decide rahta hai
+css, js and api ka file kaha rakhgege 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--> html, css , javascript Basic Knowledge to Learn Both React js and Angular js with EcmaScript 
+
+--> if you  written welled and standard code , you should learn {TypeScript with Angular js}
+
+--> React js is Winner as Performance
+
+** React js Ka Demand jyada hai
+
+For Mnc good Knowledge of DSA and C++ 
+===================================================================================================================================
+
+2.) What to Learn Here
+How to install        Api
+Structure             Forms
+Basic                 Interview
+MVC                   Project
+Advance               What is new in angular 12 
+Routing               How to use Css
+===================================================================================================================================
+
+2.) #2 Setup and install
+
+How to install Node and Npm
+How to install angular Cli
+
+--> https://angular.io/cli
+        for installation
+
+        npm install -g @angular/cli
+
+        check version : ng version
+
+--> create project   ng new ngblog
+
+        C:\projects>cd ngblog
+
+        C:\projects\ngblog>code .
+     
+
+install First Angular App
+IQ
+
+===================================================================================================================================
+
+3.) #3 Files and Folder Structure
+
+    Important file and folder for beginners
+
+    package.json
+    node_modules
+    src folder:
+            app
+            assets
+            environments
+            index.html
+            main.js
+            style.css
+
+    For Advance Use
+        package-lock.json
+        angular.json
+        tsconfig files
+        .browserslistrc
+        karma.config.js
+        polyfills.ts
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+package.json : package.json is most important file , in this file , lot of information there like a ng serve, version etc
+node_modules : in this file lots of Liabraray like a angular lia, form lia, routing lia
+src folder   : 99 % Developer work in src folder 
+app          : app.components is pieace of  components like a html , css , .ts file
+assets       : extra images you can put in assets folder
+environments :  deployement file, if project is build and host
+index.html   : this file is load , sabse first load 
+main.js      : this file is , Angular or Html file ko connect karti hai 
+style.css    : You can write a Global Css
+
+
+package-lock.json : jitne bhi package hai unke Details yeah file me rahta hai
+angular.json      : Application ke configuration file rahta hai 
+tsconfig files    :  ts means TypeScript :
+.browserslistrc   : kaun kaun se browsers ko support karta hai
+karma.config.js   : test cases likhne ke liye kam aata hai
+polyfills.ts      : This file includes polyfills needed by Angular and is loaded before the app.
+                    You can add your own extra polyfills to this file.
+===================================================================================================================================
+
+4.) #4 Hello World | Make first change
+
+Write Below code in app.component.html
+<h1>Hello Angular {{title}}</h1>
+
+===================================================================================================================================
+
+#5 what is Interpolation
+
+
+--> What is Interpolation
+   -> html wale page ko Dynaimc Data ko Dispaly karna , But ? Dynamic Data aata kaha se hai
+   {{title }} Double Curley braces is Interpolation
+  
+--> How to use it
+
+ ---------------------------app.components.ts--------------------------------------------------------------------
+   import { Component } from '@angular/core';
+
+    @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+    name = 'Sanjay Vishwakarma';
+    data = 'Code Step By Step';
+    getfunctionData()
+    {
+        return "Get Function Data";
+    }
+    title = 'blog';
+    }
+
+    -----------------------app.components.html-----------------------------------------------------------
+
+    <h1 class="{{title}}">Hello, {{name}} You have Learn Angular 14</h1>
+    <h6>{{data}}</h6>
+    <h3>{{getfunctionData()}}</h3>
+    <h3>{{2+2*2}}</h3>
+    <h4>{{title == "blog"}}</h4>
+    ----------------------------------------------------------------------------
+
+--> What we can do with Interpolation ?
+--> What we can not do with Interpolation ?
+--> iq
+
+==========================================================================================================================
+
+#6 Angular CLI & important Commands
+
+    # Commands
+        ng serve
+        ng help
+        ng version
+        ng generate component user
+        ng generate module user-auth //  user-auth module ke ander component banana
+                                     //  ng generate component user-auth/sign-in 
+                                     //  ng generate component user-auth/sign-up
+        ng generate class Dummy
+        ng g interface dummyInterface
+
+        //for build
+        ng build
+========================================================================================================
+
+#7 what is Component
+
+--> what is Component
+    ->Component is Building Block , it is like a Seperate Features like a Header, footer, profile
+
+    app.component.css           // write a css style code
+    app.component.html          // write a html code
+    app.component.spec.ts       // spec ke ander component ki testing karte hai
+    app.component.ts            // Dynamic data, logical part, api connection yeah sab isme karte hai
+
+--------------------------------------------------------------------------------------------------
+--> How We can make a Component
+  -> ng g c user-list
+
+--> How to use Component
+
+<h1 class="{{title}}">Hello, {{name}} You have Learn Angular 14</h1>
+<app-user-list></app-user-list>  /  we use this tag from user-list.component.ts // Selector 
+
+--> iq
+========================================================================================================
+
+#8 Component with Inline Style & Template
+     ng g c user-list --inline-style  / for inline style , no generate app.user-list.css file
+     ng g c student-list --inline-template //<app-student-list></app-student-list> //ng g c student-list --inline-template
+     ng g c country-list --inline-template --inline-style
+
+===============================================================================================
+
+#9 what is module
+--> What is Module
+        -> user-auth is complete module hota hai, for. eg  login => Component 1, sigup => com 2,  forget password => com 3  
+        -> Service means Api File   AND Pips means Helper
+ 
+--> How To Make Module
+        -> ng g m user-auth   // for module
+        -> ng g c user-auth/login  // make component inside a user/auth folder 
+
+--> How To use Module
+----------------------------------------------------------------------------------------------------------------
+-> ng g c user-auth/login  // make component inside a user/auth folder 
+        export login component
+---------------------------------------------------------------------------------------------------------------
+--> Make Component inside Module
+
+        import { NgModule } from '@angular/core';
+        import { CommonModule } from '@angular/common';
+        import { LoginComponent } from './login/login.component';
+
+        @NgModule({
+        declarations: [
+        LoginComponent
+        ],
+        imports: [
+        CommonModule
+        ],
+        exports:[
+        LoginComponent
+        ]
+        })
+        export class UserAuthModule { }
+====================================================================================================================================
+
+10 #9 make and call function on button click
+
+--> Define Function
+        //aap.component.ts
+
+        import { Component } from '@angular/core';
+
+        @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+        })
+        export class AppComponent {
+                getName()
+                {
+                  alert('Function Called');
+                }
+        }
+
+--> Call Function on button click.
+        //aap.component.html
+
+        <button (click)="getName()">Click</button>
+--> Params in function .
+
+        <button (click)="getName('Sanjay','Peter')">Click</button>
+
+        import { Component } from '@angular/core';
+
+        @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+        })
+        export class AppComponent {
+                getName(name:string, second:string)
+                {
+                alert("Function Called  : "+ name + second);
+                }
+        }
+--> IQ
+
+====================================================================================================================================
+
+11.) Important Event
+
+--> Call function with different events
+--> Events with input box and get value
+--> IQ
+
+-----> app.component.html
+
+<button (click)="getName('Sanjay','Peter')">Click</button>
+
+<button (click)="getData('Hello')">Click 2</button>
+<br/> <br/>
+<input type="text" (keyup)="getData('box')" placeholder="Event Keyup" />   // keyup par getData function call hoga print  box hoga
+
+<input type="text" #box (keyup)="getData(box.value)" placeholder="Event Keyup" /> // #box is a id | get input value
+
+<input type="text" #box1 (keydown)="getData(box1.value)" placeholder="Event KeyDown" /> // #box is a id | get input value
+<br/> <br/>
+<input type="text" #box3 (blur)="getData(box3.value)" placeholder="Event BLUR" />
+
+<h1 (mouseover)="getData('over')">Mouser Over</h1>
+<h1 (mouseleave)="getData('Leave')">Mouser Leave</h1>
+
+
+
+-----> app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  getName(name:string, second:string)
+  {
+    alert("Function Called  : "+ name + second);
+  }
+
+  getData(val:string)
+  {
+    console.warn("Function Called : " + val);
+  }
+}
+
+====================================================================================================================================
+
+12.) Get Input Box Value and Display
+
+--> Make input Box
+--> Get Value on keyup(change)
+--> Display Value on Screen
+--> Get Value with Button Click
+--> IQ
+
+-----> app.component.html
+
+<h1>{{title}}</h1>
+<input type="text" #box (keyup)="getValue(box.value)" placeholder="Enter Name" name="name" />
+<p>Input Box Value : {{displayVal}}</p>
+
+
+-----> app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Get Input Box Value';
+
+  displayVal:string= '';  //defind displayval is a variable
+
+  getValue(val:string)
+  {
+    console.log(val);
+    this.displayVal= val;
+  }
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+How to get Button Click input value  || change to very few line
+
+<h1>{{title}}</h1>
+
+<input type="text" #box  placeholder="Enter Name" name="name" />
+
+<button (click)="getValue(box.value)">Click</button>
+
+<p>Input Box Value : {{displayVal}}</p>
+
+====================================================================================================================================
+13.) Counter example
+
+--> Make Buttons for Counter
+--> Make function for counter
+--> Call functions on buttons 
+
+-----> app.component.html
+
+<h1>{{title}}</h1>
+<button (click) = "counter('minus')" >--</button>
+
+<p>Count Plus : {{count}}</p>
+<button (click) = "counter('add')">++</button>
+
+
+-----> app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Counter Example with Angular';
+
+  count=0;
+  counter(type:string)
+  {
+    type === 'add' ? this.count++ : this.count--;
+  }
+}
+
+====================================================================================================================================
+14.)  Basic Rule of style
+
+-> Component Style
+// app.component.ts // if very few class so write css in component.css file 
+.heading{
+        color: orange;
+}
+
+-> Global Style
+// style.css  // if many heading in many file with same class name so you can put this style in style.css file
+.heading{
+        color: orange;
+}
+
+-> Internal Style
+
+<h1 class="heading">{{title}}</h1>
+<style>
+.heading{
+  color: blue;
+}
+</style>
+
+-> Check Style with Multiple Component
+-> IQ
+====================================================================================================================================
+
+15.) Property Binding Example
+
+-> What is Property Binding
+<h1>{{title}}</h1>
+<input type="text" name="user-name" value="{{name}}" disabled="{{disable}}" >
+<br/>
+<input type="text" name="user-name" [value]="name" [disabled]=disable >
+
+-------------------------------------------------------------------------------
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Counter Example with Angular';
+  name = 'Sanjay';
+  disable=false;
+}
+
+-> Diff. Between Property Binding ad Interpolation?
+
+ Property Binding : Boolean value me kam karta hai.
+ Interpolation : String or Numeric value me kam karta hai
+
+-> Understand it with Example
+====================================================================================================================================
+
+16.) If else condition
+
+-> Define if-else Property for if condition
+-> Apply Basic if Condition
+-> How to use if else condition
+
+
+-----> app.component.html
+
+<h1>{{title}}</h1>
+<h1 *ngIf="show; then ifBlock else elseBlock" ></h1>
+
+<ng-template #ifBlock>
+    <h1>If Condition</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>Else Condition</h1>
+</ng-template>
+
+
+-----> app.component.ts
+
+import { Component } from '@angu
+
+<h1>{{title}}</h1>
+<h1 *ngIf="show === 'sanjay'; then ifBlock else elseBlock" ></h1>
+
+<ng-template #ifBlock>
+    <h1>If Condition</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>Else Condition</h1>
+</ng-template>
+lar/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'If Else Condition';
+
+  show=false;
+}
+-----------------------------------------------------------------------------------------------------
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'If Else Condition';
+  show='sanjay';
+}
+
+
+<h1>{{title}}</h1>
+<h1 *ngIf="show === 'sanjay'; then ifBlock else elseBlock" ></h1>
+
+<ng-template #ifBlock>
+    <h1>If Condition</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>Else Condition</h1>
+</ng-template>
+
+====================================================================================================================================
+17.)  Multiple condition or else if
+
+-> APPLY BASIC IF CONDITION
+-> How to use it el-if condition
+
+
+<h1>{{title}}</h1>
+<!-- for multiple else if condition -->
+<ng-template [ngIf]="color==='red'">
+  <h1 style="color: red;">Red Color</h1>
+</ng-template>
+
+<ng-template [ngIf]="color==='green'">
+  <h1 style="color: green;">Green Color</h1>
+</ng-template>
+
+<ng-template [ngIf]="color==='blue'">
+  <h1 style="color: blue;">Blue Color</h1>
+</ng-template>
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Multiple condition or else if';
+  color='blue';
+}
+====================================================================================================================================
+18.)  Switch Case
+
+-> Why use Switch Case
+-> Make Switch Case
+-> ApplyDefault case
+
+<h1>{{title}}</h1>
+
+<div [ngSwitch] = "color">
+  <h1 *ngSwitchCase="'red'" style="color: red;">Red Color</h1>
+
+  <h1 *ngSwitchCase="'green'" style="color: green;">Green Color</h1>
+
+  <h1 *ngSwitchCase="'blue'" style="color: blue;">Green Color</h1>
+
+  <h1 *ngSwitchDefault>Unknown Color</h1>
+</div>
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Apply Switch Case';
+  color='xyz';
+}
+====================================================================================================================================
+19.)  For Loop | *ngFor
+
+-> Apply for Loop on it
+-> Apply Loop on Obejct's Array
+
+
+<h1>{{title}}</h1>
+
+<h3 *ngFor="let item of users">{{item}}</h3>
+
+<h3 *ngFor="let item of userdetails">{{item.name}} -- {{item.email}} -- {{item.phone}}</h3>
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'For Loop | *ngFor';
+
+  users=['Rohit','Ashish','Sanjay','Bhavesh', 'Shree','Amritpal','Piyush'];
+  userdetails = [
+      {name: 'Rohit Vishwakarma', email: 'rohit.vishwakarma@darwinpgc.com', phone:9638527411},
+      {name: 'Sanjay Vishwakarma', email: 'sanjay.vishwakarma@darwinpgc.com', phone:9638527411},
+      {name: 'Suraj Vishwakarma', email: 'suraj.vishwakarma@darwinpgc.com', phone:9638527411},
+      {name: 'Aman Vishwakarma', email: 'aman.vishwakarma@darwinpgc.com', phone:9638527411},
+  ];
+}
+
+====================================================================================================================================
+
+20.)  Nested Loop / Multidiamensiinal Array both are same
+
+-> Make Array
+-> Apply for Loop on it
+-> Make Nested Array
+-> Apply Loop on Nested Array
+
+<h1>{{title}}</h1>
+
+<ul *ngFor="let item of users">
+  <li>{{item.name}} -- {{item.email}} -- {{item.phone}}</li>
+    <ul *ngFor="let acount of item.socialAccounts">
+      <li>{{acount}}</li>
+    </ul>
+</ul>
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title= 'Nested For Loop';
+
+  users = [
+      {name: 'Rohit Vishwakarma', email: 'rohit.vishwakarma@darwinpgc.com', phone:9638527411, socialAccounts:['fb', 'insta', 'twitter']  },
+      {name: 'Sanjay Vishwakarma', email: 'sanjay.vishwakarma@darwinpgc.com', phone:9638527411, socialAccounts:['whatsapp', 'insta', 'gmail']},
+      {name: 'Suraj Vishwakarma', email: 'suraj.vishwakarma@darwinpgc.com', phone:9638527411, socialAccounts:['Facebook', 'instagram', 'gmail']},
+      {name: 'Aman Vishwakarma', email: 'aman.vishwakarma@darwinpgc.com', phone:9638527411, socialAccounts:['Mozza', 'Youtube', 'gmail'] },
+  ];
+}
+
+====================================================================================================================================
+21.) Style Binding | Dynamic Style
+
+
